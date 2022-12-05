@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="/public/stylesheets/style.css">
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+            <form  action="/add?id={{Tododetails._id}}" method="post" role="form">
+                <h3 class="fw-bold text-uppercase">Todu List</h3>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label"></label>
+                    <input type="text" name="itemName" placeholder="Add Item" value="{{Tododetails.itemName}}" class="form-control">
+
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-check2-circle"></i></button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-4 ">
+                <h3 class="fw-bold text-uppercase">Add List</h3>
+                <div class="mb-3 text-white mt-4 ms-2">
+                    {{#each TodoList}}
+                        <ul class="review-star">
+                            <li class="fill">{{this.itemName}}
+                           <a href="/edit?id={{this._id}}"  class="btn btn-primary"> <i class="bi bi-pencil"></i> </a>
+                           <a href="/delete?id={{this._id}}" class="btn btn-primary"><i class="bi bi-x"></i></a></li>
+                        </ul>
+                    {{/each}}
+                </div>
+
+        </div>
+
+          <div class="col-4 ">
+            <h3 class="fw-bold text-uppercase">Remove List</h3>
+                <div class="mb-3 text-white mt-4 ms-2">
+                    {{#each TodoRemoveList}}
+                        <ul class="review-star">
+                            <li class="fill">{{this.itemName}}
+                        </ul>
+                    {{/each}}
+                </div>
+
+        </div>
+
+    </div>
+
+</div>
